@@ -46,12 +46,12 @@
   height: 40px;
   margin-right: auto;
   margin-left: initial;
-  background-image: url("plus.svg");
+  background-image: url("../../assets/plus.svg");
   background-size: cover;
 }
 
 .questions .accordion-button:not(.collapsed)::after {
-  background-image: url("minusFIll.svg");
+  background-image: url("../../assets/minusFIll.svg");
   background-size: cover;
 }
 
