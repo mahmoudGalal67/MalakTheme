@@ -32,7 +32,7 @@
   .games > img {
     height: 90vh;
   }
-  .swiper-slide {
+  .games .swiper-slide {
     width: 160px !important;
     height: 200px;
   }

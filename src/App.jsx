@@ -18,6 +18,7 @@ import Questions from "./components/questions/Questions";
 import Testimonials from "./components/testimonials/Testimonials";
 import Map from "./components/map/Map";
 import { useState } from "react";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const [currentTHeme, setcurrentTHeme] = useState("light");
@@ -43,6 +44,7 @@ function App() {
       <Questions />
       <Testimonials />
       <Map />
+      <Footer />
     </div>
   );
 }

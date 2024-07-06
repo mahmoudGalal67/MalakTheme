@@ -10,7 +10,7 @@ function Questions() {
         <p>إجابات على أهم الأسئلة</p>
       </div>
       <Accordion defaultActiveKey="0">
-        <Accordion.Item eventKey="0">
+        <Accordion.Item>
           <Accordion.Header>ما هو لوريم إيبسوم؟</Accordion.Header>
           <Accordion.Body>
             لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي

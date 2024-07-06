@@ -8,10 +8,24 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import Marquee from "../marquee/marquee";
 
 import "./navbar.css";
+import { useState } from "react";
+import Account from "../account/Account";
+import Search from "../search/Search";
+import Currency from "../currency/Currency";
 
 function OffcanvasExample({ currentTHeme, changeTheme }) {
+  const [modalShow, setModalShow] = useState(false);
+
+  const handelModal = (modalType) => {
+    setModalShow(modalType);
+  };
+
   return (
     <>
+      <Account setModalShow={setModalShow} modalShow={modalShow} />
+      <Search setModalShow={setModalShow} modalShow={modalShow} />
+      <Currency setModalShow={setModalShow} modalShow={modalShow} />
+
       <Marquee />
       {[false].map((expand) => (
         <Navbar
@@ -28,22 +42,32 @@ function OffcanvasExample({ currentTHeme, changeTheme }) {
         >
           <Container>
             <div className="nav-icons-wrapper">
-              <span className="currency">العمله : ريال سعودي</span>
+              <span
+                className="currency"
+                onClick={() => handelModal("currency")}
+              >
+                العمله : ريال سعودي
+              </span>
               <div className="wrapper nav-icons">
+                <a href="#">
+                  {" "}
+                  <svg
+                    style={{ color: "white" }}
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                    />
+                  </svg>
+                </a>
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-                  />
-                </svg>
-                <svg
+                  onClick={() => handelModal("account")}
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -58,6 +82,7 @@ function OffcanvasExample({ currentTHeme, changeTheme }) {
                 </svg>
 
                 <svg
+                  onClick={() => handelModal("search")}
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -118,38 +143,119 @@ function OffcanvasExample({ currentTHeme, changeTheme }) {
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
               placement="end"
             >
-              <Offcanvas.Header closeButton>
+              <Offcanvas.Header
+                closeButton
+                style={{ backgroundColor: "#0A192F" }}
+              >
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  Offcanvas
+                  القائمة الرئيسية
                 </Offcanvas.Title>
               </Offcanvas.Header>
-              <Offcanvas.Body>
+              <Offcanvas.Body style={{ backgroundColor: "#0A192F" }}>
+                <img
+                  src="nKlgDCwGwCKH1z7uod8P5lktK1X90KNAFDtuUwn5.png"
+                  alt=""
+                />
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="#action1">Home</Nav.Link>
-                  <Nav.Link href="#action2">Link</Nav.Link>
+                  <Nav.Link href="#action3">
+                    {" "}
+                    الشواحن
+                    <img
+                      src="USxUodnMBAkHCWL0hPmhHTKz1atSAD2Ml8KQFRno.webp"
+                      alt=""
+                    />{" "}
+                  </Nav.Link>
+                  <Nav.Link href="#action1">
+                    الساعات
+                    <img
+                      src="q2S1udYoQlaXDFhmZCdcoPiyevYAwE53UCJgXGbU.webp"
+                      alt=""
+                    />{" "}
+                  </Nav.Link>
+                  <Nav.Link href="#action2">
+                    {" "}
+                    السماعات
+                    <img
+                      src="jWmYKuJTMOJnde3NCdgq1y2dWMH5C3HJFOnuj7hU.webp"
+                      alt=""
+                    />{" "}
+                  </Nav.Link>
+
                   <NavDropdown
-                    title="Dropdown"
+                    title="الجوالات"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
-                    <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                    <NavDropdown.Item href="#action3" className="special">
+                      عرض الكل{" "}
+                      <img
+                        src="RENGAs4TtxxBiKDB5rb08cMj5LWGLnwDEENFPALt.png"
+                        alt=""
+                      />
+                    </NavDropdown.Item>
                     <NavDropdown.Item href="#action4">
-                      Another action
+                      ريدراجون{" "}
+                      <img
+                        src="XfqvBsIRFfOY90TxhLBzEjGraUzY5gsmhTkOFDuT.webp"
+                        alt=""
+                      />
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action5">
-                      Something else here
+                      أنكر{" "}
+                      <img
+                        src="XIwBhlX2FTEJPYqCvBvx1bQqaIJvd6TDOo7YDguE.webp"
+                        alt=""
+                      />
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href="#action5">
+                      أبل{" "}
+                      <img
+                        src="MKb20xA0170Y5gfqKNIX20wwwym16W6cHo0e74Va.webp"
+                        alt=""
+                      />
                     </NavDropdown.Item>
                   </NavDropdown>
+                  <Nav.Link href="#action2">
+                    {" "}
+                    تخفيضات
+                    <img
+                      src="mainlogo.webp"
+                      style={{
+                        width: "30px",
+                        height: "30px",
+                        objectFit: "cover",
+                      }}
+                      alt=""
+                    />{" "}
+                  </Nav.Link>
+                  <Nav.Link href="#action2">
+                    {" "}
+                    البراندات
+                    <img
+                      src="mainlogo.webp"
+                      style={{
+                        width: "30px",
+                        height: "30px",
+                        objectFit: "cover",
+                      }}
+                      alt=""
+                    />{" "}
+                  </Nav.Link>
+                  <Nav.Link href="#action2">
+                    {" "}
+                    المدونة
+                    <img
+                      src="mainlogo.webp"
+                      style={{
+                        width: "30px",
+                        height: "30px",
+                        objectFit: "cover",
+                      }}
+                      alt=""
+                    />{" "}
+                  </Nav.Link>
                 </Nav>
-                <Form className="d-flex">
-                  <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                  />
-                  <Button variant="outline-success">Search</Button>
-                </Form>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
