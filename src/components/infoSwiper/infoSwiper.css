@@ -5,7 +5,7 @@
   margin: 25px 0;
   margin-bottom: 0;
   padding: 10% 0;
-  background-image: url(XpicGdqukY710HZkEjrrtjbcIXcwxjyCx389iv9Y.webp);
+  background-image: url("../../assets/XpicGdqukY710HZkEjrrtjbcIXcwxjyCx389iv9Y.webp");
 }
 
 .info-swipper.main-slider {
@@ -68,7 +68,7 @@
 }
 
 .info-swipper:nth-child(2) {
-  background-image: url("l5zdBFdYyLWjfVKOizzsrH9g8SLxc2WdKC0UFF5N.webp");
+  background-image: url("../../assets/l5zdBFdYyLWjfVKOizzsrH9g8SLxc2WdKC0UFF5N.webp");
 }
 .info-swipper:nth-child(2) .wrapper p {
   color: white;
