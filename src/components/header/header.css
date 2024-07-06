@@ -1,0 +1,27 @@
+.main-cards {
+  margin-top: -7%;
+}
+
+.main-cards .wrapper {
+  padding: 0 15%;
+  gap: 8px;
+  justify-content: center;
+}
+
+.main-cards .wrapper img {
+  width: 30%;
+}
+
+@media (max-width: 500px) {
+  .main-cards .wrapper {
+    padding: 0;
+  }
+  .main-cards {
+    margin-top: -15%;
+  }
+  .header-video {
+    height: 70vh;
+    width: auto;
+    max-width: none;
+  }
+}

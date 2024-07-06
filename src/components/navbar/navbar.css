@@ -1,0 +1,56 @@
+.navbar-toggler {
+  color: transparent;
+}
+
+.navbar-toggler-icon {
+  background-image: none;
+}
+
+.navbar-toggler-icon svg {
+  color: #60f4d4;
+}
+
+.nav-icons-wrapper {
+  display: flex;
+  gap: 12px;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+}
+
+.navbar-toggler-icon::after {
+}
+
+.nav-icons svg {
+  width: 25px;
+  stroke-width: 2.5;
+}
+
+.navbar-brand {
+  color: white;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.navbar-brand:hover {
+  color: white !important;
+}
+
+.currency {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+}
+
+@media (max-width: 500px) {
+  .currency,
+  .text-menu {
+    display: none;
+  }
+}
