@@ -1,24 +1,14 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "./components/navbar/navbar";
-import Header from "./components/header/header";
-import InfoSwiper from "./components/infoSwiper/infoswiper";
-import ProductSection from "./components/productSection/ProductSection";
-import ProductSection2 from "./components/productSection2/ProductSection2";
-import Flipbanner from "./components/flipbanner/Flipbanner";
-import Blog from "./components/blog/BlogSection";
-
 import "./App.css";
 
-import CountDownProducts from "./components/countDownProducts/CountDownProducts";
-import Banner from "./components/banner/Banner";
-import Features from "./components/features/Features";
-import Brands from "./components/brands/Brands";
-import Games from "./components/games/Games";
-import Questions from "./components/questions/Questions";
-import Testimonials from "./components/testimonials/Testimonials";
-import Map from "./components/map/Map";
+import { BrowserRouter } from "react-router-dom";
+import { Routes } from "react-router-dom";
+import { Route } from "react-router-dom";
+
 import { useState } from "react";
-import Footer from "./components/footer/Footer";
+
+import Home from "./pages/home/home";
+import ProductCatigory from "./pages/productCatigory/ProductCatigory";
 
 function App() {
   const [currentTHeme, setcurrentTHeme] = useState("light");
@@ -27,25 +17,33 @@ function App() {
     setcurrentTHeme((prev) => (prev === "light" ? "dark" : "light"));
   };
 
+  <Routes>
+    <Route path="/" /> {/* 👈 Renders at /app/ */}
+  </Routes>;
+
   return (
-    <div className={currentTHeme === "dark" ? "dark-theme" : ""}>
-      <Navbar changeTheme={changeTheme} currentTHeme={currentTHeme} />
-      <Header />
-      <InfoSwiper mainSlider={true} />
-      <CountDownProducts />
-      <Flipbanner />
-      <ProductSection />
-      <Banner />
-      <ProductSection2 />
-      <Features />
-      <Blog />
-      <Brands />
-      <Games />
-      <Questions />
-      <Testimonials />
-      <Map />
-      <Footer />
-    </div>
+    <BrowserRouter basename="/">
+      <div className={currentTHeme === "dark" ? "dark-theme" : ""}>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home changeTheme={changeTheme} currentTHeme={currentTHeme} />
+            }
+          />
+          <Route
+            path="/catigory"
+            element={
+              <ProductCatigory
+                changeTheme={changeTheme}
+                currentTHeme={currentTHeme}
+              />
+            }
+          />
+        </Routes>
+        ;
+      </div>
+    </BrowserRouter>
   );
 }
 
